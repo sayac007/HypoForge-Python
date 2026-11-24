@@ -4,14 +4,14 @@
 
 **Why use it?** Because a high correlation with your target is not enough. A candidate feature should be interpretable, numerically sensible and — before adoption — tested for **incremental predictive value against your existing baseline on later data**.
 
-> **Important boundary:** Python `discover()` and `select_candidates()` support exploration and screening. The Python package does **not currently ship a native rolling-origin Ridge tournament**. The related [R package](https://github.com/<new-owner>/HypoForge-R) does, with a different discovery algorithm. Neither package estimates causal effects or guarantees forecast improvements.
+> **Important boundary:** Python `discover()` and `select_candidates()` support exploration and screening. The Python package does **not currently ship a native rolling-origin Ridge tournament**. The related [R package](https://github.com/sayac007/HypoForge-R) does, with a different discovery algorithm. Neither package estimates causal effects or guarantees forecast improvements.
 
 ## Install
 
 Python 3.11+:
 
 ```bash
-pip install "git+https://github.com/<new-owner>/HypoForge-Python.git"
+pip install "git+https://github.com/sayac007/HypoForge-Python.git"
 ```
 
 For reproducibility, pin a Git commit SHA in your own environment. Core dependencies include NumPy, pandas and scikit-learn.
@@ -80,7 +80,7 @@ The Python ranker is exploratory, not a rolling-origin tournament. Redundancy sc
 
 The Python package currently does not implement a native rolling-origin Ridge tournament. A separate evaluation can use `TimeSeriesSplit` and a pipeline containing fold-fitted imputation, scaling and Ridge. Compare a fixed baseline against baseline-plus-one-candidate on **identical** later folds. Keep the final holdout untouched until the entire procedure is frozen. No RMSE or improvement figures are presented here because no such benchmark is claimed.
 
-The [R package](https://github.com/<new-owner>/HypoForge-R) provides a native rolling-origin tournament with a different exploratory ranker. Numerical parity requires explicitly matching folds, preprocessing and feature availability.
+The [R package](https://github.com/sayac007/HypoForge-R) provides a native rolling-origin tournament with a different exploratory ranker. Numerical parity requires explicitly matching folds, preprocessing and feature availability.
 
 ### 5. A reliable workflow for your own project
 
